@@ -4,6 +4,7 @@ use clap::{Parser, Subcommand};
 mod helpers;
 mod day1;
 mod day2;
+mod day3;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -21,6 +22,10 @@ enum Commands {
     Day2 {
         #[arg(long)]
         inputfile: String
+    },
+    Day3 {
+        #[arg(long)]
+        inputfile: String
     }
 }
 
@@ -34,6 +39,9 @@ fn main() {
         },
         Some(Commands::Day2 { inputfile }) => {
             day2::main::run(inputfile.to_string());
+        },
+        Some(Commands::Day3 { inputfile }) => {
+            day3::main::run(inputfile.to_string());
         },
         None => {}
     }
