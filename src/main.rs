@@ -6,6 +6,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -31,6 +32,10 @@ enum Commands {
     Day4 {
         #[arg(long)]
         inputfile: String
+    },
+    Day5 {
+        #[arg(long)]
+        inputfile: String
     }
 }
 
@@ -50,6 +55,9 @@ fn main() {
         },
         Some(Commands::Day4 { inputfile }) => {
             day4::main::run(inputfile.to_string());
+        },
+        Some(Commands::Day5 { inputfile }) => {
+            day5::main::run(inputfile.to_string());
         },
         None => {}
     }
