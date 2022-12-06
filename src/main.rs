@@ -7,7 +7,7 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
-
+mod day6;
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
 struct Cli {
@@ -36,6 +36,10 @@ enum Commands {
     Day5 {
         #[arg(long)]
         inputfile: String
+    },
+    Day6 {
+        #[arg(long)]
+        stream: String
     }
 }
 
@@ -58,6 +62,9 @@ fn main() {
         },
         Some(Commands::Day5 { inputfile }) => {
             day5::main::run(inputfile.to_string());
+        },
+        Some(Commands::Day6 { stream }) => {
+            day6::main::run(stream.to_string());
         },
         None => {}
     }
