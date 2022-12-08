@@ -7,7 +7,6 @@ pub fn run(filename: String) {
     };
     let lines: Vec<String> = lines.into_iter().map(|s| s.ok().unwrap()).collect();
     let forest = parse_input(lines);
-    println!("Rows: {:?}, Cols: {}", forest.len(), forest[0].len());
     let size = forest.len();
     let mut visible = (2 * size) + (2 * (size - 2));
     let mut best_score = 0;
